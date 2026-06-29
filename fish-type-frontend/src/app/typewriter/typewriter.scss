@@ -1,0 +1,54 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
+}
+
+.text {
+  font-size: x-large;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 4px;
+  color: #595959;
+  fill: #595959;
+}
+
+.done {
+  fill: #f8f9fa !important;
+  color: #f8f9fa !important;
+  text-decoration: none !important;
+}
+
+.wrong {
+  fill: red;
+  color: red;
+  text-decoration: underline 1px red;
+}
+
+
+.text-input {
+  // move the input field out of sight without disabling its functionality
+  position: fixed;
+  left: -9999px;
+  top: 0;
+}
+
+.whitespace{
+  text-decoration: underline 1px #495057;
+}
+
+.whitespace &.done {
+  text-decoration: none !important;
+}
+
+.break {
+  flex-basis: 100%;
+}

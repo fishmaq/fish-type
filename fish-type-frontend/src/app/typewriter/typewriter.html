@@ -1,0 +1,38 @@
+<ng-container>
+  <textarea #input class="text-input" (keyup)="onKeyUp($event.key)"></textarea>
+  <div class="wrapper center">
+    <div class="text center">
+      <div class="text center">
+        @for (character of text; let characterIndex = $index; track characterIndex) {
+          @if (character === '\n') {
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                 class="text"
+                 [class.wrong]="input.value.length > characterIndex && character !== input.value.at(characterIndex)"
+                 [class.done]="character === input.value.at(characterIndex)">
+              >
+              <path d="M360-240 120-480l240-240 56 56-144 144h488v-160h80v240H272l144 144-56 56Z" />
+            </svg>
+            <div class="break"></div>
+          } @else {
+            <span class="character"
+                  [class.wrong]="input.value.length > characterIndex && character !== input.value.at(characterIndex)"
+                  [class.done]="character === input.value.at(characterIndex)"
+                  [class.whitespace]="character === ' '">
+            {{ character === ' ' ? '&nbsp;' : character }}
+            </span>
+          }
+        }
+        @if (inputOverflow !== ' ') {
+          @for (character of inputOverflow; track $index) {
+            <span class="character wrong">
+              {{ character === ' ' ? '&nbsp;' : character }}
+            </span>
+          }
+        }
+      </div>
+    </div>
+    <div class="center">
+      <button (click)="keepFocus = true" style="width: 50px">start</button>
+    </div>
+  </div>
+</ng-container>
