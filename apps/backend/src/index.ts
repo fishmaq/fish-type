@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
-import { Collection, Document, MongoClient, ObjectId } from "mongodb";
+import {Collection, Document, MongoClient} from "mongodb";
 
 // TODO use postgres
 
@@ -26,7 +26,6 @@ app.listen(PORT, async () => {
   typeText = db.collection("typeText");
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
 
 app.get("/api", async (req, res) => {
   return res.status(200).json(
